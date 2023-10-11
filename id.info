@@ -12448,7 +12448,7 @@ Patient 15	Note 102
 0	0	#  
 5	10	# alert,	Last Name (ambig)
 24	28	mary 	Female First Name (un)	Female First Name (ambig)	Male First Name (un)	Male First Name (ambig)	Last Name (ambig)	Female First Name (popular/ambig)	Doctor First Name	Doctor Last Name	First Name4 (NamePattern1)	First Name8 (NamePattern2)
-29	36	theresa 	Female First Name (un)	Last Name (un)	Female First Name (popular/ambig)	Last Name (NamePattern1)	First Name5 (NamePattern1)
+29	36	theresa 	Female First Name (un)	Last Name (un)	Female First Name (popular/ambig)	First Name5 (NamePattern1)	Last Name (NamePattern1)
 37	45	kondouli 	Last Name (NamePattern1)
 62	69	# swallow 	Last Name (ambig)
 86	91	# passe 	Last Name (ambig)
@@ -76448,7 +76448,7 @@ Patient 137	Note 6
 1089	1092	# SEE 	Last Name (ambig)
 1098	1102	# CASE 	Last Name (ambig)
 1123	1128	KAREN 	Female First Name (un)	Last Name (un)	Female First Name (popular/ambig)	Doctor First Name	First Name4 (NamePattern1)	First Name8 (NamePattern2)
-1129	1132	ANN 	Female First Name (un)	Female First Name (ambig)	Last Name (ambig)	Female First Name (popular/ambig)	Doctor First Name	Last Name (NamePattern1)	First Name4 (NamePattern1)
+1129	1132	ANN 	Female First Name (un)	Female First Name (ambig)	Last Name (ambig)	Female First Name (popular/ambig)	Doctor First Name	First Name4 (NamePattern1)	Last Name (NamePattern1)
 1133	1140	YANULIS 	Doctor Last Name	Last Name (NamePattern1)
 Patient 137	Note 7
 0	0	# N
