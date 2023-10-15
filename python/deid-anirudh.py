@@ -1,11 +1,62 @@
 import re
 import sys
-phone_pattern ='(\d{3}[-\.\s/]??\d{3}[-\.\s/]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s/]??\d{4})'
+#phone_pattern ='(\d{3}[-\.\s/]??\d{3}[-\.\s/]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s/]??\d{4})'
 
 # compiling the reg_ex would save sime time!
-ph_reg = re.compile(phone_pattern)
+#ph_reg = re.compile(phone_pattern)
 
+gender_pattern = r'FEMALE|MALE'
 
+gender_reg= re.compile(gender_pattern)
+
+def check_for_gender(patient,note,chunk, output_handle):
+    offset = 27
+    output_handle.write('Patient {}\tNote {}\n'.format(patient,note))
+    for match in gender_reg.finditer(chunk):    
+            # debug print, 'end=" "' stops print() from adding a new line
+            print(patient, note,end=' ')
+
+            print((match.start()-offset),match.end()-offset, match.group())
+                
+            # create the string that we want to write to file ('start start end')    
+            result = str(match.start()-offset) + ' ' + str(match.start()-offset) +' '+ str(match.end()-offset) 
+            
+            # write the result to one line of output
+            output_handle.write(result+'\n')
+
+def deid_gender(text_path= 'id.text', output_path = 'gender.phi'):
+    # start of each note has the patter: START_OF_RECORD=PATIENT||||NOTE||||
+    # where PATIENT is the patient number and NOTE is the note number.
+    start_of_record_pattern = '^start_of_record=(\d+)\|\|\|\|(\d+)\|\|\|\|$'
+
+    # end of each note has the patter: ||||END_OF_RECORD
+    end_of_record_pattern = '\|\|\|\|END_OF_RECORD$'
+
+    # open the output file just once to save time on the time intensive IO
+    with open(output_path,'w+') as output_file:
+        with open(text_path) as text:
+            # initilize an empty chunk. Go through the input file line by line
+            # whenever we see the start_of_record pattern, note patient and note numbers and start 
+            # adding everything to the 'chunk' until we see the end_of_record.
+            chunk = ''
+            for line in text:
+                record_start = re.findall(start_of_record_pattern,line,flags=re.IGNORECASE)
+                if len(record_start):
+                    patient, note = record_start[0]
+                chunk += line
+
+                # check to see if we have seen the end of one note
+                record_end = re.findall(end_of_record_pattern, line,flags=re.IGNORECASE)
+
+                if len(record_end):
+                    # Now we have a full patient note stored in `chunk`, along with patient numerb and note number
+                    # pass all to check_for_phone to find any phone numbers in note.
+                    check_for_gender(patient,note,chunk.strip(), output_file)
+
+                    # initialize the chunk for the next note to be read
+                    chunk = ''
+
+'''
 def check_for_phone(patient,note,chunk, output_handle):
     """
     Inputs:
@@ -45,8 +96,7 @@ def check_for_phone(patient,note,chunk, output_handle):
             # write the result to one line of output
             output_handle.write(result+'\n')
 
-            
-            
+
 def deid_phone(text_path= 'id.text', output_path = 'phone.phi'):
     """
     Inputs: 
@@ -98,12 +148,13 @@ def deid_phone(text_path= 'id.text', output_path = 'phone.phi'):
                     # pass all to check_for_phone to find any phone numbers in note.
                     check_for_phone(patient,note,chunk.strip(), output_file)
                     
+
                     # initialize the chunk for the next note to be read
                     chunk = ''
-                
+'''
 if __name__== "__main__":
         
     
-    
-    deid_phone(sys.argv[1], sys.argv[2])
+    deid_gender(sys.argv[1], sys.argv[2])
+    #deid_phone(sys.argv[1], sys.argv[2])
     
