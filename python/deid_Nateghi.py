@@ -1,3 +1,5 @@
+import cProfile
+import pstats
 import re
 import sys
 # for finding MM/DD/YYYY
@@ -109,8 +111,15 @@ def deid_date(text_path= 'id.text', output_path = 'date.phi'):
                     chunk = ''
                 
 if __name__== "__main__":
-        
-    
-    
+    profile = cProfile.Profile()
+    profile.enable()
     deid_date(sys.argv[1], sys.argv[2])
+    profile.disable()
+    profile.dump_stats("results.prof")
+
+    stats = pstats.Stats("results.prof")
+    stats.strip_dirs()
+    stats.sort_stats("time")  # Use "time" or "cumulative" here
+    stats.print_stats()
+    
     
