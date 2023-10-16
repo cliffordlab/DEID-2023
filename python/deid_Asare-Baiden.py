@@ -1,7 +1,14 @@
+import pstats
 import re
+import subprocess
 import sys
 import os
 import chardet
+import cProfile
+import gprof2dot
+import snakeviz as snakeviz
+from PIL import Image
+import snakeviz
 
 phone_pattern = '(\d{3}[-\.\s/]??\d{3}[-\.\s/]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s/]??\d{4})'
 
@@ -229,5 +236,12 @@ def deid_phone(text_path='id.text', output_path='name.phi'): # output file is na
 
 
 if __name__ == "__main__":
+    # Profile your code
+    with cProfile.Profile() as pr:
+        deid_phone(sys.argv[1], sys.argv[2])
 
-    deid_phone(sys.argv[1], sys.argv[2])
+    # Save the profiling data
+    pr.dump_stats('profile_results.prof')
+
+
+
