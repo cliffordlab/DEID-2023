@@ -1,0 +1,18 @@
+Examining "Age" category.
+
+
+==========================
+
+Num of true positives = 3
+
+Num of false positives = 0
+
+Num of false negatives = 1
+
+Sensitivity/Recall = 0.75
+
+PPV/Specificity = 1.0
+
+==========================
+
+
