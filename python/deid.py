@@ -130,7 +130,7 @@ def check_for_age(patient, note, chunk, output_handle):
     output_handle.write("Patient {}\tNote {}\n".format(patient, note))
 
     # Patterns of age regular expression
-    age_pattern = ["\d{1,2}yo|\d{1,2} yo|\d{1,2} yr old"]
+    age_pattern = ["\d{2,}yo|\d{2,} yo|\d{2,} yr old|\d{2,} year old|\d{2,} years old"]
 
     for age_pat in age_pattern:
         matches = re.finditer(age_pat, chunk, flags=re.IGNORECASE)
