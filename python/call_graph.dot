@@ -1,0 +1,20 @@
+digraph {
+	graph [fontname=Arial, nodesep=0.125, ranksep=0.25];
+	node [fontcolor=white, fontname=Arial, height=0, shape=box, style=filled, width=0];
+	edge [fontname=Arial];
+	44 [color="#ff0100", fontcolor="#ffffff", fontsize="10.00", label="deid_Asare-Baiden:108:check_for_name\n99.89%\n(20.43%)\n2434×", tooltip="/Users/macbookpro/Documents/GitHub/DEID-2023/python/deid_Asare-Baiden.py"];
+	44 -> 102 [arrowsize="0.84", color="#add306", fontcolor="#add306", fontsize="10.00", label="70.42%\n45602838×", labeldistance="2.82", penwidth="2.82"];
+	44 -> 120 [arrowsize="0.35", color="#0d1275", fontcolor="#0d1275", fontsize="10.00", label="1.38%\n45602838×", labeldistance="0.50", penwidth="0.50"];
+	44 -> 121 [arrowsize="0.35", color="#0d1174", fontcolor="#0d1174", fontsize="10.00", label="1.03%\n68404257×", labeldistance="0.50", penwidth="0.50"];
+	44 -> 122 [arrowsize="0.35", color="#0d1074", fontcolor="#0d1074", fontsize="10.00", label="0.71%\n45602838×", labeldistance="0.50", penwidth="0.50"];
+	44 -> 146 [arrowsize="0.35", color="#0d1e78", fontcolor="#0d1e78", fontsize="10.00", label="4.11%\n22803853×", labeldistance="0.50", penwidth="0.50"];
+	55 [color="#ff0000", fontcolor="#ffffff", fontsize="10.00", label="deid_Asare-Baiden:174:deid_phone\n100.00%\n(0.05%)\n1×", tooltip="/Users/macbookpro/Documents/GitHub/DEID-2023/python/deid_Asare-Baiden.py"];
+	55 -> 44 [arrowsize="1.00", color="#ff0100", fontcolor="#ff0100", fontsize="10.00", label="99.89%\n2434×", labeldistance="4.00", penwidth="4.00"];
+	102 [color="#add306", fontcolor="#ffffff", fontsize="10.00", label="~:0:<built-in method builtins.print>\n70.42%\n(70.42%)\n45602838×", tooltip="~"];
+	120 [color="#0d1275", fontcolor="#ffffff", fontsize="10.00", label="~:0:<method 'group' of 're.Match' objects>\n1.38%\n(1.38%)\n45602838×", tooltip="~"];
+	121 [color="#0d1174", fontcolor="#ffffff", fontsize="10.00", label="~:0:<method 'start' of 're.Match' objects>\n1.03%\n(1.03%)\n68404257×", tooltip="~"];
+	122 [color="#0d1074", fontcolor="#ffffff", fontsize="10.00", label="~:0:<method 'end' of 're.Match' objects>\n0.71%\n(0.71%)\n45602838×", tooltip="~"];
+	146 [color="#0d1e78", fontcolor="#ffffff", fontsize="10.00", label="~:0:<method 'write' of '_io.TextIOWrapper' objects>\n4.11%\n(2.13%)\n22803853×", tooltip="~"];
+	146 -> 192 [arrowsize="0.35", color="#0d1575", fontcolor="#0d1575", fontsize="10.00", label="1.98%\n22803853×", labeldistance="0.50", penwidth="0.50"];
+	192 [color="#0d1575", fontcolor="#ffffff", fontsize="10.00", label="codecs:327:reset\n1.98%\n(1.58%)\n22803853×", tooltip="/Users/macbookpro/opt/anaconda3/envs/Mimilab/lib/python3.10/codecs.py"];
+}

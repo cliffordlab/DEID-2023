@@ -15,7 +15,9 @@ def are_overlapped(gstart,gend,tstart,tend):
 import re,sys
 from collections import defaultdict
 
-def run_stats(gold_path = 'id.deid', gold_cats_path= 'id-phi.phrase', test_path='phone.phi'):
+
+# test_path changed from phone.phi to name.phi
+def run_stats(gold_path = 'id.deid', gold_cats_path= 'id-phi.phrase', test_path='name.phi'):
     """
     Inputs:
         gold_path: path to the gold standard file that does not include categories.
@@ -250,8 +252,7 @@ def run_stats(gold_path = 'id.deid', gold_cats_path= 'id-phi.phrase', test_path=
     
     
 if __name__== "__main__":
-        
-    
+
     
     run_stats(sys.argv[1], sys.argv[2], sys.argv[3])
     
