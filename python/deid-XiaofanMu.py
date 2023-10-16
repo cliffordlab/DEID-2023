@@ -2,6 +2,7 @@ import re
 import sys
 from nltk import word_tokenize, pos_tag, ne_chunk
 from nltk.tree import Tree
+# we need control of how many digit each chunk should have:
 date_pattern = (
     r'\b(0?[1-9]|1[0-2])/(0?[1-9]|1[0-9]|2[0-9]|3[0-1])/\d{4}\b|'  # MM/DD/YYYY
     r'\b(0?[1-9]|1[0-2])/(0?[1-9]|1[0-9]|2[0-9]|3[0-1])/\d{2}\b|'  # MM/DD/YY
@@ -14,7 +15,7 @@ date_pattern = (
 # compiling the reg_ex would save sime time!
 date_reg = re.compile(date_pattern)
 
-
+# we can reuse the original check_for_phone function since they do have 100% same logic
 def check_for_date(patient,note,chunk, output_handle):
     
     # The perl code handles texts a bit differently, 
