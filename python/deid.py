@@ -137,7 +137,7 @@ def check_for_age(patient, note, chunk, output_handle):
 
         for match in matches:
             identified_age_match = match.group()
-            age_value = int(identified_age_match[:2])
+            age_value = int(identified_age_match[:2])   # Get only the first two values
             # Check if the identified age variable is greater than 89 as per HIPAA definitions
             if age_value > 89:
                 result = (
@@ -170,7 +170,6 @@ def deid_age(text_path= 'id.text', output_path = 'age.phi'):
             start end phone_number
         where `start` is the start position of the detected phone number string, and `end` is the detected end position of the string
         both relative to the start of patient note.
-    
     """
     # start of each note has the patter: START_OF_RECORD=PATIENT||||NOTE||||
     # where PATIENT is the patient number and NOTE is the note number.
